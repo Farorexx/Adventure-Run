@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Run</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="system/env.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="top">
+            <header class="header">
+                <h1>Adventure Run</h1>
+            </header>
+
+            <a href="qrScanner.html">
+                <img src="Images/Sun.png" alt="Sun">
+            </a>
+
+        </div>
+
+        <div class="content">
+
+            <h1>Group Images</h1>
+            <div class="table-container">
+                <div id="image-container"></div>
+            </div>
+        </div>
+
+        <div class="content2">
+            <button onclick="transition2('progress.html');" type="submit" id="backButton">< Back</button>
+            <script src="system/database/uploadScores.js"></script>
+            <button onclick="confirmUpload();" type="submit" id="uploadScores">Submit Scores</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Get the number of uploaded images
+        const uploadCount = parseInt(sessionStorage.getItem("uploadCount")) || 0;
+        console.log(uploadCount);
+        const imageContainer = document.getElementById("image-container");
+
+        // Create a table to display the images and names
+        const table = document.createElement("table");
+
+        // Loop through and display all uploaded images
+        for (let i = 1; i <= uploadCount; i++) {
+            const uniqueName = "upload" + i;
+            const base64ImageData = sessionStorage.getItem(uniqueName);
+
+            if (base64ImageData) {
+                // Create a new table row for each image and its name
+                const row = table.insertRow();
+
+                // Create the first cell for the image name
+                const cell1 = row.insertCell(0);
+                cell1.textContent = "Uploaded Image " + i;
+
+                // Create the second cell for the image
+                const cell2 = row.insertCell(1);
+
+                // Create an img element for the image
+                const imgElement = document.createElement("img");
+                imgElement.src = base64ImageData; // Set the base64-encoded data as the source
+                imgElement.alt = "Uploaded Image " + i;
+
+                // Resize the image to 100x100 pixels
+                imgElement.style.maxWidth = "100px";
+                imgElement.style.maxHeight = "100px";
+
+                // Append the image to the second cell
+                cell2.appendChild(imgElement);
+            }
+        }
+
+        // Append the table to the image container
+        imageContainer.appendChild(table);
+
+        function transition2(location) {
+            // Create an Audio object for the sound effect
+            const soundFX = new Audio("SoundEffects/transition2.mp3");
+
+            // Play the sound effect
+            soundFX.play();
+
+            // Delay the page change for 1 second (adjust as needed)
+            setTimeout(() => {
+                // Navigate to the new page after the delay
+                window.location.href = location;
+            }, 1000); // Adjust the delay duration in milliseconds (e.g., 1000ms = 1 second)
+        }
+    </script>
+    <script>
+        function confirmUpload() {
+            var userConfirmed = confirm("Are you sure you want to upload your scores? This will end the game and email all data to the teacher.");
+            
+            if (userConfirmed) {
+                uploadScore();
+            }
+        }
+
+        const gameFinished = JSON.parse(sessionStorage.getItem("gameFinished"));
+        if (!gameFinished) {
+            var uploadScoresButton = document.getElementById("uploadScores");
+            if (uploadScoresButton) {
+                uploadScoresButton.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

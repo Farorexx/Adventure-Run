@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Run</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+    navigator.serviceWorker.onmessage = event => {
+        if (event.data === 'offlineAlert') {
+            alert('Connect to the Internet first');
+        }
+    };
+    </script>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="top">
+            <header class="header">
+                <h1>Adventure Run</h1>
+            </header>
+
+            <a href="qrScanner.html">
+                <img src="Images/Sun.png" alt="Sun">
+            </a>
+
+        </div>
+
+        <div class="content">
+            <h1 type="topper">Great Job</h1>
+            <script src="system/qr_codes/Scoring.js"></script>
+            <div class="table-container">
+            <table id="taskTable">
+            </table>
+            </div>
+            <p>Total Score: <span id="totalScore">0</span></p>
+        </div>
+
+        <div class="content2">
+            <button onclick="transition2('locationPrompt.html');" id="nextQuestion" type="submit">Complete Task</button>
+            <button onclick="handleButtonClick();" type="submit">Review</button>
+        </div>
+
+    </div>
+    <script src="system/soundEffects.js"></script>
+    <script>
+        const gameFinished = JSON.parse(sessionStorage.getItem("gameFinished"));
+        if (gameFinished) {
+            var nextQuestionButton = document.getElementById("nextQuestion");
+            if (nextQuestion) {
+                nextQuestion.style.display = "none";
+            }
+        }
+
+        // This function will be called when the button is clicked.
+        function handleButtonClick() {
+            // Check if the user is offline.
+            if (!navigator.onLine) {
+                // If offline, show an alert and prevent the button's action.
+                alert("You need to be connected to the internet before continuing.");
+            } else {
+                transition1('review.html')
+            }
+        }
+    </script>
+</body>
+
+</html>

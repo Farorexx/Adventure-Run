@@ -1,0 +1,556 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #E5F7FD;
+}
+
+body[type="n-body"] {
+    background-color: #c2a4e0;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    background-image: url('Images/Background.png');
+    background-size: auto 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+.n-container {
+    display: flex;
+    min-height: 100vh;
+    background-image: url('Images/N-Background.png');
+    background-size: auto 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+.container[type="home"] {
+    background-image: url('Images/H-Background.png');
+}
+
+.container[type="admin"] {
+    background-image: url('Images/A2-Background.png');
+}
+
+.container[type="adminLogin"] {
+    background-image: url('Images/A-Background.png');
+}
+
+#username-input {
+    margin-left: 15px;
+    width: 250px;
+    font-size: 36px;
+}
+
+#password-input {
+    margin-left: 20px;
+    width: 250px;
+    font-size: 36px;
+}
+
+
+.top {
+    flex: 4;
+    max-width: 660px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.top header {
+    color: #073C4E;
+    font-weight: 700;
+    height: auto;
+    font-family: 'Inter', sans-serif;
+    padding-left: 10%;
+}
+
+.top header[type="n-header"] {
+    color:#D9D9D9;
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 20px;
+    margin-right: 59px;
+}
+
+img[alt="Sun"] {
+    width: 132px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 15px;
+    margin-right: 30px;
+}
+
+img[alt="Title"] {
+    width: 500px;
+    height: auto;
+}
+
+.content {
+    position: absolute;
+    min-width: 30rem;
+    top: 40%;
+    max-height: 45%;
+    overflow-y: scroll;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    background-color: #4B72BF;
+    color: white;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding-bottom: 10px;
+}
+
+.content[type="night"] {
+    background-color: #864BBF;
+    top: 50%;
+    height: 60%;
+    max-height: 60%;
+}
+
+.content[type="admin"] {
+    background-color: #946530;
+    top: 45%;
+}
+
+.h-content {
+    position: absolute;
+    min-width: 30rem;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    padding-bottom: 10px;
+    font-size: x-large;
+}
+
+.h-content h1 {
+    text-align: center;
+}
+
+.h-content h3 {
+    text-align: right;
+}
+
+.content h1[type="topper"] {
+    background-color: #355CA8;
+    border-radius: 15px;
+    padding: 3% 1%;
+}
+
+.content h2 {
+    font-weight: lighter;
+    padding: 5px 20px;
+}
+
+.content p {
+    padding: 5% 5%;
+}
+
+#qrcode-container {
+    padding: 20px 50px;
+}
+
+#reader {
+    padding-bottom: 0;
+    width: 99%;
+    height: auto;
+}
+
+.content2 {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 35rem;
+    color: #07236B;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+button[type="submit"] {
+    background-color: #E69B24;
+    color: white;
+    padding: 20px 70px;
+    margin: 1%;
+    border: none;
+    border-radius: 15px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    color: white;
+    max-width: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button[alt="night"] {
+    padding: 20px 70px;
+    margin: 1%;
+    border: none;
+    border-radius: 15px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #553996;
+}
+
+button[alt="night2"] {
+    background-color: #553996;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button[type="genorator"] {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 20px 20px;
+    border-radius: 5px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="file"][data-custom-type="generator"]::-webkit-file-upload-button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.admin {
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 20px;
+    margin-right: 5px;
+}
+
+button[type="admin"] {
+    background-color: #684323;
+    color: white;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button[type="admin"][data-custom-type="login"] {
+    margin-left: 75%;
+}
+
+button[type="admin"]:hover {
+    background-color: black;
+}
+
+button:hover {
+    background-color: #BC7300;
+    color: white;
+}
+
+button:active {
+    outline: 1px solid #BC7300;
+}
+
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 2rem; /* Adjust the value to set the width of the square */
+    height: 2rem; /* Adjust the value to set the height of the square */
+    border: 2px solid #193266; /* Set the outline color */
+    border-radius: 4px; /* Adjust the value to set the border radius for the square */
+    outline: none;
+    background-color: #243D72; /* Set the fill color */
+    margin-right: 10px; /* Add spacing between the checkbox and label */
+    vertical-align: middle; /* Align the checkbox vertically with the label */
+}
+
+input[type="radio"]:checked {
+    background-color: white; /* Set the fill color for the checked radio button */
+}
+
+label {
+    font-size: 1.2rem;
+    /* Adjust the value to change the label's font size */
+}
+
+/* CSS for the table */
+.table-container {
+    overflow-x: auto;
+    max-height: 200px; /* Set a maximum height for the list to become scrollable */
+}
+
+.table-container[type="night"] {
+    max-height: 255px; /* Set a maximum height for the list to become scrollable */
+}
+  
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-weight: bold;
+    color: #fff; /* Text color for table content */
+}
+
+#taskTable {
+    background-color: #243D72;
+}
+
+table[type="night"] {
+    width: 50%;
+    background-color: #864BBF;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+/* Styles for the container holding the podium elements */
+.leaderboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Adjust the height as needed */
+    background-color: #864BBF;
+    position: relative; /* Needed to position the podium elements */
+  }
+  
+.img-gold {
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    transform: translateY(-40%);
+    padding: 20px;
+    font-size: 24px;
+}
+
+.img-silver {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-150%);
+    padding: 20px;
+    font-size: 24px;
+}
+
+.img-bronze {
+    position: absolute;
+    top: 20%;
+    transform: translateX(90%);
+    padding: 20px;
+    font-size: 24px;
+}
+
+/* Styles for the gold (top) podium element */
+.podium-gold {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    font-size: 24px;
+  }
+  
+/* Styles for the silver (far left) podium element */
+.podium-silver {
+    position: absolute;
+    top: 65%;
+    left: 10%;
+    transform: translateY(-50%);
+    padding: 20px;
+    font-size: 24px;
+  }
+  
+  /* Styles for the bronze (middle right, slightly lower) podium element */
+  .podium-bronze {
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    transform: translateY(50%);
+    padding: 20px;
+    font-size: 24px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+  .profile-pic {
+    width: 75px;
+    height: auto;
+    border-radius: 15px;
+    background-color: #243D72;
+  }
+
+
+/* Addaptive Webdesign */
+@media (max-height: 950px) {
+    .top {
+        max-width: 600px;
+    }
+}
+@media (max-height: 845px) {
+    .top {
+        max-width: 500px;
+    }
+    img[alt="Sun"] {
+        width: 80px;
+    }
+}
+@media (max-height: 600px) and (min-width: 1024px) {
+    .top {
+        max-width: 400px;
+    }
+    img[alt="Sun"] {
+        width: 80px;
+    }
+    .h-content {
+        top: 41%;
+        min-width: 20rem;
+    }
+    .content {
+        top: 41%;
+        min-width: 23rem;
+    }
+    img[alt="Title"] {
+        width: 400px;
+        height: auto;
+    }
+    .content2 {
+        font-size: 0.75rem;
+        top: 75%;
+        min-width: 10rem;
+    }
+    button[type="submit"] {
+        font-size: 1rem;
+        padding: 20px 50px;
+    }
+}
+
+/* For iPads & tablets */
+@media (min-width: 600px) and (max-width: 820px) and (min-height: 915px) and (max-height: 1180px) {
+    .top {
+        max-width: 89%;
+    }
+}
+
+/* For Surface and larger tablets */
+@media (min-width: 821px) and (max-width: 912px) and (min-height: 1181px) and (max-height: 1368px) {
+    .top {
+        max-width: 95%;
+
+    }
+}
+
+/* For majority of phones */
+@media (max-width: 414px) and (max-width: 915px) {
+    .top {
+        max-width: 95%;
+    }
+
+    img[alt="Title"] {
+        width: 350px;
+        height: auto;
+    }
+
+    .h-content {
+        min-width: 15rem;
+    }
+    img[alt="Sun"] {
+        width: 80px;
+    }
+    .container {
+        min-height: 100vh;
+        background-size: 100% 100vh;
+    }
+    .content2 {
+        top: 75%;
+        min-width: 20rem;
+    }
+
+    .content {
+        top: 41%;
+        min-width: 23rem;
+    }
+    .top header {
+        font-size: 0.75rem;
+        padding-left: 5%;
+    }
+}
+
+/* less popular, thin tones (Galaxy Fold, pixel 5, etx. */
+@media (max-width: 280px) and (max-width: 653px) {
+    .top {
+        max-width: 100%;
+    }
+
+    img[alt="Title"] {
+        width: 280px;
+        height: auto;
+    }
+
+    .h-content {
+        min-width: 10rem;
+    }
+    img[alt="Sun"] {
+        width: 80px;
+    }
+    .container {
+        min-height: 100vh;
+        background-size: 100% 100vh;
+    }
+    .content2 {
+        font-size: 0.75rem;
+        top: 75%;
+        min-width: 10rem;
+    }
+
+    .content {
+        font-size: 0.75rem;
+        top: 41%;
+        min-width: 17rem;
+    }
+
+    .top header {
+        font-size: 0.75rem;
+        padding-left: 5%;
+    }
+    .profile-pic {
+        width: 50px;
+    }
+    button[type="submit"] {
+        font-size: 1rem;
+        padding: 20px 50px;
+    }
+}

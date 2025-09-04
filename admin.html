@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Run</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="system/adminFileControl.js"></script>
+    <script defer src="system/database/databaseControl.js"></script>
+</head>
+
+<body onload="if(!checkCookie()){
+    //correct('adminlogin.html');
+}">
+    <div class="container" type="admin">
+
+        <div class="top">
+            <header class="header">
+            </header>
+
+            <button onclick="transition2('index.html');" type="admin">Back To Game</button>
+
+        </div>
+
+        <div class="content" type="admin">
+            <h1>Admin Controls</h1>
+            <button onclick="transition2('activityCreation.html');" type="admin">Create Questions</button>
+            <br><br>
+            <button onclick="printAll();" type="admin">View All Questions</button>
+            <br><br>
+            <p><input type="file" id="input"> <button onclick="uploadFile()" type="admin">Upload Questions</button></p>
+            <button onclick="saveFile()" type="admin" alt="night">Download Questions</button>
+            <br><br>
+            <button onclick="transition2('leaderboard.html');" type="submit" alt="night2">leaderboard</button>
+        </div>
+
+        <div class="content2" type="admin">
+
+        </div>
+
+    </div>
+    <script src="system/soundEffects.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Run</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include the QRCode.js library -->
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+    <!-- Include the JavaScript QR code scanner library -->
+    <script src="system/node_modules/html5-qrcode/html5-qrcode.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="top">
+            <header class="header">
+                <h1>Adventure Run</h1>
+            </header>
+
+            <a href="start.html">
+                <img src="Images/Sun.png" alt="Sun">
+            </a>
+
+        </div>
+
+        <div class="content">
+            <h1>Scan The QR Code</h1>
+            <div id="reader"></div>
+            <script src="system/qr_codes/QR-Systems.js"></script>
+            <script>scanQR()</script>
+        </div>
+
+        <div class="content2">
+            <button onclick="transition1('locationPrompt.html');" type="submit">< Back</button>
+            <script src="system/soundEffects.js"></script>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Run</title>
+
+    <script defer src="system/database/databaseControl.js"></script>
+    <script defer src="system/activityScript.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    
+    <div class="container" type="admin">
+
+        <div class="top">
+            <header class="header">
+            </header>
+
+            <a href="start.html">
+            </a>
+
+        </div>
+
+        <div class="content" type="admin">
+            <h1>Create New Activity</h1>
+
+            <div class="tabcontent">
+                <h2> Location</h2>
+                <label for="location">Select a Place:</label>
+                <input type="text" id="location" name="location">
+            </div>
+            <div class="tabcontent" id="qType" style="display: none;">
+                <h2> Type</h2>
+                <input type="radio" name="type" value="choice">
+                <label for="choice">Multiple Choice</label>
+                
+                <input type="radio" name="type" value="image">
+                <label for="image">Image Upload</label>
+                
+            </div>
+              <div class="tabcontent"  style="display: none;">
+                <h2> Easy Question</h2>
+                <div id="easy" class="image" style="display:none;">
+                    <textarea id="EasyImage" placeholder="Upload an Image of a Sunset..."></textarea>
+                </div>
+
+                <div id="easyc" class ="choice" style="display: none;">
+                    <textarea id="EasyQuestion" placeholder="Type your Question Here"></textarea>
+                    <br><label>Answers!</label><br>
+                    Correct Answer:<br>
+                    <input type="text" placeholder="Answer A"><br>
+                    
+                    Other Options:<br/>
+                    <input type="text" placeholder="Answer B"><br>
+                    <input type="text" placeholder="Answer C"><br>
+                    <input type="text" placeholder="Answer D"><br>
+                </div>
+
+            </div>
+            <div class="tabcontent"  style="display: none;">
+                <h2> Hard Question</h2>
+
+                <div id="hard" class = "image" style="display: none;">
+                    <textarea id="HardImage" placeholder="Upload an Image of a Sunset..."></textarea>
+                </div>
+                <div id="hardc" class = "choice" style="display: none;">
+                    <textarea id="HardQuestion" placeholder="Type your Question Here"></textarea>
+                    <br><label>Answers!</label><br>
+                    Correct Answer:<br>
+                    <input type="text" placeholder="Answer A"><br>
+                    
+                    Other Options:<br/>
+                    <input type="text" placeholder="Answer B"><br>
+                    <input type="text" placeholder="Answer C"><br>
+                    <input type="text" placeholder="Answer D"><br>
+                </div>
+
+            </div>
+
+            <div id="ConfirmAnswers" class="tabcontent"  style="display: none;">
+                <div id="ConfirmEasy">
+                    <h2>Easy</h2>
+                    <h3>Text Sample</h3>
+                    <div id="choiceEasy" class="choice" style="display: none;">
+                        <li>A</li>
+                        <li>B</li>
+                        <li>C</li>
+                        <li>D</li>
+                    </div>
+                    <div class="image" style="display: none;">
+                        Image to be Uploaded!
+                    </div>
+                </div>
+
+                <div id="ConfirmHard">
+                    <h2>Hard</h2>
+                    <h3>Text Sample</h3>
+                    <div id="choiceHard" class="choice" style="display: none;">
+                        <li>A</li>
+                        <li>B</li>
+                        <li>C</li>
+                        <li>D</li>
+                    </div>
+                    <div class="image" style="display: none;">
+                        Image to be Uploaded!
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="content2" type="admin">
+            <button onclick="nextTab(-1)" type="submit" alt="night">Cancel</button>
+            <button onclick="nextTab(1)" type="submit" alt="night">Create</button>
+        </div>
+
+    </div>
+</body>
+
+</html>

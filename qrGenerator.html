@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Run</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include the QRCode.js library -->
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+    <!-- Include the JavaScript QR code scanner library -->
+    <script src="system/node_modules/html5-qrcode/html5-qrcode.min.js"></script>
+</head>
+
+<body onload="qrGen();">
+    <div class="container" type="admin">
+
+        </div>
+
+        <div class="content" type="admin">
+            <h1>QR Generation (Example)</h1>
+            <div>
+              <button id="btn1" type="genorator" onclick="button();">QR Code 1</button>
+              <button id="btn2" type="genorator" onclick="button();">QR Code 2</button>
+              <br><br>
+              <button id="btn3" type="genorator" onclick="button();">QR Code 3</button>
+              <button id="btn4" type="genorator" onclick="button();">QR Code 4</button>
+              <br><br>
+            </div>
+            <div id="qrcode-container"></div>
+            <script src="system/soundEffects.js"></script>
+            <script src="system/qr_codes/QR-Systems.js"></script>
+        </div>
+
+        <div class="content2">
+            <button onclick="transition1('admin.html');" type="admin">< Back</button>
+            <button onclick="transition2('');" type="admin">Next ></button>
+        </div>
+
+    </div>
+</body>
+
+</html>

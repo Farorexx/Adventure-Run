@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Run</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .image-options {
+            position: absolute;
+            display: none;
+        }
+    </style>
+</head>
+
+<body type="n-body">
+    <div class="n-container">
+
+        <div class="top">
+            <header type="n-header">
+                <h1>Adventure Run</h1>
+            </header>
+
+            <button onclick="transition1('admin.html');" type="submit" alt="night">Complete</button>
+        </div>
+
+        <div class="content" type="night">
+            <h1>SCORES</h1>
+            <div class="leaderboard">
+                <img src="Images\\Podium.png" width="90%" height="100%">
+                <div class="img-gold">
+                    <div class="image-container">
+                        <img src="Images\profilePics\Cat.png" width="100px" height="100px" data-index="0">
+                        <select class="image-options" size="10"></select>
+                    </div>
+                </div>
+                <div class="podium-gold" contenteditable="true">First<img src="Images\gold.png" width="50px" height="50px"></div>
+                <div class="img-silver">
+                    <div class="image-container">
+                        <img src="Images\profilePics\Cat.png" width="100px" height="100px" data-index="1">
+                        <select class="image-options" size="10"></select>
+                    </div>
+                </div>
+                <div class="podium-silver" contenteditable="true">Second<img src="Images\silver.png" width="50px" height="50px"></div>
+                <div class="img-bronze">
+                    <div class="image-container">
+                        <img src="Images\profilePics\Cat.png" width="100px" height="100px" data-index="2">
+                        <select class="image-options" size="10"></select>
+                    </div>
+                </div>
+                <div class="podium-bronze" contenteditable="true">Fourth<img src="Images\bronze.png" width="50px" height="50px"></div>
+            </div>
+            <div class="table-container" type="night">
+                <table id="leaderboard-table" type="night">
+                    <tr>
+                        <td>
+                            <div class="image-container">
+                                <img src="Images\profilePics\Cat.png" alt="${imageSrc}" width="40px" height="40px" data-index="3">
+                                <select class="image-options" size="5"></select>
+                            </div>
+                        </td>
+                        <td contenteditable="true">Fourth</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="image-container">
+                                <img src="Images\profilePics\Cat.png" alt="${imageSrc}" width="40px" height="40px" data-index="4">
+                                <select class="image-options" size="5"></select>
+                            </div>
+                        </td>
+                        <td contenteditable="true">Fifth</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="image-container">
+                                <img src="Images\profilePics\Cat.png" alt="${imageSrc}" width="40px" height="40px" data-index="5">
+                                <select class="image-options" size="5"></select>
+                            </div>
+                        </td>
+                        <td contenteditable="true">Sixth</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="image-container">
+                                <img src="Images\profilePics\Cat.png" alt="${imageSrc}" width="40px" height="40px" data-index="6">
+                                <select class="image-options" size="5"></select>
+                            </div>
+                        </td>
+                        <td contenteditable="true">Seventh</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="image-container">
+                                <img src="Images\profilePics\Cat.png" alt="${imageSrc}" width="40px" height="40px" data-index="7">
+                                <select class="image-options" size="5"></select>
+                            </div>
+                        </td>
+                        <td contenteditable="true">Eighth</td>
+                    </tr>
+                    <!-- Add more rows with cat images as needed -->
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <script src="system/soundEffects.js"></script>
+    <script>
+        const catImages = document.querySelectorAll('img[data-index]');
+        const options = [
+            "Blue_Braces.png",
+            "Blue_Cool.png",
+            "Blue_Peppy.png",
+            "Blue_Serious.png",
+            "Bunny.png",
+            "Cat.png",
+            "Dog.png",
+            "Fish.png",
+            "Green_Content.png",
+            "Green_Happy_F.png",
+            "Green_Happy_M.png",
+            "Green_Lovey.png",
+            "Pink_Headphone.png",
+            "Pink_Wink.png",
+            "Pink_Wow_F.png",
+            "Pink_Wow_M.png"
+        ];
+
+        catImages.forEach((img, index) => {
+            const select = img.nextElementSibling;
+
+            options.forEach((option) => {
+                const optionElement = document.createElement('option');
+                optionElement.value = option;
+                optionElement.textContent = option;
+                select.appendChild(optionElement);
+            });
+
+            img.addEventListener('click', (event) => {
+                const select = event.currentTarget.nextElementSibling;
+                select.style.display = 'block';
+
+                select.addEventListener('change', (e) => {
+                    const selectedValue = e.target.value;
+                    const imgElement = catImages[index];
+                    imgElement.src = `Images\\profilePics\\${selectedValue}`;
+                    select.style.display = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

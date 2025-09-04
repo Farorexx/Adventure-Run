@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Run</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="top">
+            <header class="header">
+                <h1>Adventure Run</h1>
+            </header>
+
+            <a href="qrScanner.html">
+                <img src="Images/Sun.png" alt="Sun">
+            </a>
+
+        </div>
+
+        <div class="content">
+            <h1>Your Next Task is...</h1>
+            <h2 id="locationPrompt">Prompt</h2>
+        </div>
+
+        <div class="content2">
+            <button onclick="transition2('qrScanner.html');" type="submit">Next</button>
+        </div>
+
+    </div>
+    <script src="system/soundEffects.js"></script>
+    <script>
+        var stringQuestionArray = sessionStorage.getItem("questionArray");
+        questionArray = JSON.parse(stringQuestionArray);
+
+        // Get a reference to the <p> element by its id
+        var locationPromptElement = document.getElementById("locationPrompt");
+
+        // Change the text of the <p> element to questionArray[4]
+        locationPromptElement.innerText = questionArray[4];
+    </script>
+</body>
+
+</html>

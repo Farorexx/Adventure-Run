@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Run</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <header class="header">
+                <h1>Adventure Run</h1>
+            </header>
+            <a href="start.html">
+                <img src="Images/Sun.png" alt="Sun">
+            </a>
+        </div>
+
+        <div class="content">
+            <div class="tabcontent">
+                <h2>Group Creation</h2>
+                <form id="groupForm">
+                    
+                    <div id="groupNameTab">
+                        <label for="groupName">Group Name:</label>
+                        <input type="text" id="groupName" required>
+                    </div>
+                </form>
+            </div>
+                    <div id="groupProfileTab" class="tabcontent hidden">
+                        <h3>Select Group Profile Picture:</h3>
+                        <div class="profile-grid">
+                            <table>
+                                <tr>
+                                    <td><img src="Images\profilePics\Blue_Braces.png" alt="Profile 1" class="profile-pic" onclick="selectProfile('Images/profilePics/Blue_Braces.png')"></td>
+                                    <td><img src="Images\profilePics\Blue_Cool.png" alt="Profile 2" class="profile-pic" onclick="selectProfile('Images/profilePics/Blue_Cool.png')"></td>
+                                    <td><img src="Images\profilePics\Blue_Peppy.png" alt="Profile 3" class="profile-pic" onclick="selectProfile('Images/profilePics/Blue_Peppy.png')"></td>
+                                    <td><img src="Images\profilePics\Blue_Serious.png" alt="Profile 4" class="profile-pic" onclick="selectProfile('Images/profilePics/Blue_Serious.png')"></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="Images\profilePics\Green_Content.png" alt="Profile 1" class="profile-pic" onclick="selectProfile('Images/profilePics/Green_Content.png')"></td>
+                                    <td><img src="Images\profilePics\Green_Happy_F.png" alt="Profile 2" class="profile-pic" onclick="selectProfile('Images/profilePics/Green_Happy_F.png')"></td>
+                                    <td><img src="Images\profilePics\Green_Happy_M.png" alt="Profile 3" class="profile-pic" onclick="selectProfile('Images/profilePics/Green_Happy_M.png')"></td>
+                                    <td><img src="Images\profilePics\Green_Lovey.png" alt="Profile 4" class="profile-pic" onclick="selectProfile('Images/profilePics/Green_Lovey.png')"></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="Images\profilePics\Pink_Headphone.png" alt="Profile 1" class="profile-pic" onclick="selectProfile('Images/profilePics/Pink_Headphone.png')"></td>
+                                    <td><img src="Images\profilePics\Pink_Wink.png" alt="Profile 2" class="profile-pic" onclick="selectProfile('Images/profilePics/Pink_Wink.png')"></td>
+                                    <td><img src="Images\profilePics\Pink_Wow_F.png" alt="Profile 3" class="profile-pic" onclick="selectProfile('Images/profilePics/Pink_Wow_F.png')"></td>
+                                    <td><img src="Images\profilePics\Pink_Wow_M.png" alt="Profile 4" class="profile-pic" onclick="selectProfile('Images/profilePics/Pink_Wow_M.png')"></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="Images\profilePics\Bunny.png" alt="Profile 1" class="profile-pic" onclick="selectProfile('Images/profilePics/Bunny.png')"></td>
+                                    <td><img src="Images\profilePics\Cat.png" alt="Profile 2" class="profile-pic" onclick="selectProfile('Images/profilePics/Cat.png')"></td>
+                                    <td><img src="Images\profilePics\Dog.png" alt="Profile 3" class="profile-pic" onclick="selectProfile('Images/profilePics/Dog.png')"></td>
+                                    <td><img src="Images\profilePics\Fish.png" alt="Profile 4" class="profile-pic" onclick="selectProfile('Images/profilePics/Fish.png')"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+            <div id="confirmationTab" class="tabcontent hidden">
+                <h1>Confirmation</h1>
+                <h2>Group Name: <b><span id="confirmGroupName"></span></b></h2>
+                <h2>Selected Profile Picture: <br><br>
+                <img id="confirmProfile" src="" alt="Selected Profile">
+                </h2>
+                <button type="submit" onclick="createGroup()">Create Group</button>
+            </div>
+        </div>
+
+        <div class="content2">
+            <button type="submit" class="hidden" onclick="nextTab(-1)">Back</button>
+            <button type="submit" onclick="nextTab(1)">Next</button>
+        </div>
+    </div>
+
+    <!-- Will Move to its own script once finished. -->
+    <script>
+        var tabIndex = 0;
+        var groupName = "";
+        var selectedProfile = "";
+
+        function nextTab(delta) {
+            const soundFX = new Audio("SoundEffects/button.mp3");
+            soundFX.play();
+            
+            if (tabIndex === 0) {
+                groupName = document.getElementById("groupName").value;
+            }
+            tabIndex += delta;
+
+            if (tabIndex == 0) {
+                document.querySelector('[onclick="nextTab(-1)"]').classList.add("hidden");
+                document.querySelector('[onclick="nextTab(1)"]').classList.remove("hidden");
+            }
+            if (tabIndex == 1) {
+                document.querySelector('[onclick="nextTab(-1)"]').classList.remove("hidden");
+                document.querySelector('[onclick="nextTab(1)"]').classList.add("hidden");
+            }
+
+            var tabs = document.getElementsByClassName("tabcontent");
+
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.add("hidden");
+            }
+
+            tabs[tabIndex].classList.remove("hidden");
+
+            if (tabIndex === 2) {
+                document.getElementById("confirmGroupName").textContent = groupName;
+                document.getElementById("confirmProfile").src = selectedProfile;
+                document.getElementById("confirmProfile").classList.add("profile-pic");
+            }
+        }
+
+        function selectProfile(profileSrc) {
+            selectedProfile = profileSrc;
+            nextTab(1);
+        }
+
+        function createGroup() {
+            // Perform final actions here, such as sending data to a server
+            console.log("Group Created!");
+            sessionStorage.setItem("groupName", groupName);
+            sessionStorage.setItem("groupAvatar", selectedProfile);
+            window.location.href = "qrScanner.html";
+        }
+    </script>
+</body>
+</html>

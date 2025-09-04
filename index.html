@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Run</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <script src="system/soundEffects.js" type="text/javascript"></script>
+    <script>
+        // Check if the browser supports service workers
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container" type="home">
+
+        <div class="top">
+            <header class="header">
+            </header>
+
+            <a href="start.html">
+                <img src="Images/Sun.png" alt="Sun">
+            </a>
+
+            <div class="admin">
+                <button onclick="transition1('adminLogin.html');" type="admin">Admin Login</button>
+            </div>
+
+        </div>
+
+        <div class="h-content">
+            <img src="Images/Title.png" alt="Title">
+        </div>
+
+        <div class="content2">
+            <button onclick="transition2('start.html');" type="submit">Begin</button>
+        </div>
+
+    </div>
+</body>
+
+</html>
